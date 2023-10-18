@@ -1,0 +1,26 @@
+image_width: 1440
+image_height: 1080
+camera_name: flir_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [1953.1366 ,    0.     ,  664.27131,
+            0.     , 1954.03236,  548.26293,
+            0.     ,    0.     ,    1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.505639, 0.220645, 0.001352, 0.009221, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1., 0., 0.,
+         0., 1., 0.,
+         0., 0., 1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [1807.32263,    0.     ,  664.11206,    0.     ,
+            0.     , 1873.45007,  549.19939,    0.     ,
+            0.     ,    0.     ,    1.     ,    0.     ]
