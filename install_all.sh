@@ -1,10 +1,26 @@
 #!/bin/bash
+echo "#########################################################"
+echo "INSTALLING MTU 9000 Patch"
+echo "#########################################################"
+sudo apt update -y
+
+if grep -q "done" mtu.tmp
+then echo "Already installed."
+else
+sudo apt install -y linux-raspi-headers-5.15.0-1040 linux-modules-5.15.0-1040-raspils
+sudo dpkg -i linux-headers-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
+sudo dpkg -i linux-image-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
+sudo dpkg -i linux-modules-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
+sudo dpkg -i linux-modules-extra-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
+sudo dpkg -i linux-raspi-headers-5.15.0-1040_5.15.0-1040.43_arm64.deb
+echo done > mtu.tmp
+sudo reboot
+fi
 
 # installing ros2
 echo "#########################################################"
 echo "INSTALLING ROS2 HUMBLE"
 echo "#########################################################"
-sudo apt update -y
 sudo apt install locales -y
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
