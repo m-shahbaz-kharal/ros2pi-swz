@@ -7,7 +7,7 @@ sudo apt update -y
 if grep -q "done" mtu.tmp
 then echo "Already installed."
 else
-sudo apt install -y linux-raspi-headers-5.15.0-1040 linux-modules-5.15.0-1040-raspils
+sudo apt install -y linux-raspi-headers-5.15.0-1040 linux-modules-5.15.0-1040-raspi
 sudo dpkg -i linux-headers-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
 sudo dpkg -i linux-image-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
 sudo dpkg -i linux-modules-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
