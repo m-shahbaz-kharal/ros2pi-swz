@@ -81,6 +81,16 @@ cp flir_calib_data/ost.yaml ~/.ros/camera_info/flir_camera.yaml
 cp flir_node.launch.py flir_ws/install/spinnaker_camera_driver/share/spinnaker_camera_driver/launch/driver_node.launch.py
 
 echo "#########################################################"
+echo "INSTALLING HESAI QT 128 DRIVERS"
+echo "#########################################################"
+source /opt/ros/humble/setup.bash
+mkdir -p hesai_ws/src && cd hesai_ws/src
+git clone --recurse-submodules https://github.com/m-shahbaz-kharal/HesaiLidar_ROS_2.0
+cd ..
+colcon build --symlink-install
+cd ..
+
+echo "#########################################################"
 echo "SETTING UP NETWORK"
 echo "#########################################################"
 sudo cp network_plan.yaml /etc/netplan/99_config.yaml
