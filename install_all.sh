@@ -91,6 +91,14 @@ colcon build --symlink-install
 cd ..
 
 echo "#########################################################"
+echo "INSTALLING UTILITIES"
+echo "#########################################################"
+source /opt/ros/humble/setup.bash
+cd utils_ws
+colcon build --symlink-install
+cd ..
+
+echo "#########################################################"
 echo "SETTING UP NETWORK"
 echo "#########################################################"
 sudo cp network_plan.yaml /etc/netplan/99_config.yaml
