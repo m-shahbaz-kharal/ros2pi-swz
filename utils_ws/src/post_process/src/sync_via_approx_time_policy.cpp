@@ -99,7 +99,7 @@ int main(int argc, char** argv)
   // Create subscribers
   message_filters::Subscriber<sensor_msgs::msg::Image> image_sub(node, "/flir_camera/image_raw");
   message_filters::Subscriber<sensor_msgs::msg::CameraInfo> camera_info_sub(node, "/flir_camera/camera_info");
-  message_filters::Subscriber<sensor_msgs::msg::PointCloud2> point_cloud_sub(node, "/lidar_points");
+  message_filters::Subscriber<sensor_msgs::msg::PointCloud2> point_cloud_sub(node, "/lidar/points");
 
   // Create the synchronizer
   using MySyncPolicy = message_filters::sync_policies::ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::CameraInfo, sensor_msgs::msg::PointCloud2>;
