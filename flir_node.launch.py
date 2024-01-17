@@ -19,7 +19,7 @@ example_parameters = {
         'exposure_auto': 'Continuous',
         # These are useful for GigE cameras
         # 'device_link_throughput_limit': 380000000,
-        # 'gev_scps_packet_size': 9000,
+        'gev_scps_packet_size': 9000,
         'frame_rate_auto': 'Off',
         'frame_rate': 10.0,
         'frame_rate_enable': True,

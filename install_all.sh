@@ -1,21 +1,4 @@
 #!/bin/bash
-echo "#########################################################"
-echo "INSTALLING MTU 9000 Patch"
-echo "#########################################################"
-sudo apt update -y
-
-if grep -q "done" mtu.tmp
-then echo "Already installed."
-else
-sudo apt install -y linux-raspi-headers-5.15.0-1040 linux-modules-5.15.0-1040-raspi
-sudo dpkg -i linux-headers-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
-sudo dpkg -i linux-image-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
-sudo dpkg -i linux-modules-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
-sudo dpkg -i linux-modules-extra-5.15.0-1040-raspi_5.15.0-1040.43_arm64.deb
-sudo dpkg -i linux-raspi-headers-5.15.0-1040_5.15.0-1040.43_arm64.deb
-echo done > mtu.tmp
-sudo reboot
-fi
 
 # installing ros2
 echo "#########################################################"
@@ -37,6 +20,19 @@ sudo apt install python3-colcon-common-extensions -y
 sudo apt install python3-rosdep2 -y
 rosdep update -y
 
+# installing deps
+sudo apt install -y \
+    ros-humble-pcl-ros \
+    ros-humble-tf2-eigen \
+    ros-humble-rviz2 \
+    ros-humble-vision-opencv \
+    build-essential \
+    libeigen3-dev \
+    libjsoncpp-dev \
+    libspdlog-dev \
+    libcurl4-openssl-dev \
+    cmake
+
 if grep -q "source /opt/ros/humble/setup.bash" ~/.bashrc
 then echo ""
 else echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
@@ -45,19 +41,6 @@ fi
 echo "#########################################################"
 echo "INSTALLING OUSTER DRIVERS"
 echo "#########################################################"
-# installing ouster deps
-sudo apt install -y             \
-    ros-humble-pcl-ros     \
-    ros-humble-tf2-eigen   \
-    ros-humble-rviz2
-sudo apt install -y         \
-    build-essential         \
-    libeigen3-dev           \
-    libjsoncpp-dev          \
-    libspdlog-dev           \
-    libcurl4-openssl-dev    \
-    cmake
-
 # installing ouster driver
 source /opt/ros/humble/setup.bash
 mkdir -p ouster_ws/src && cd ouster_ws/src

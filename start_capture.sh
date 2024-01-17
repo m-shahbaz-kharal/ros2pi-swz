@@ -2,7 +2,7 @@
 echo "#########################################################"
 echo "SETTING ETHERNET MTU 9000"
 echo "#########################################################"
-sudo ip link set dev eth0 mtu 9000
+sudo ip link set dev enp2s0 mtu 9000
 
 echo "#########################################################"
 echo "Starting CAMERA DRIVER"
@@ -22,4 +22,4 @@ sleep 10
 echo "#########################################################"
 echo "STARTING DATA CAPTURE"
 echo "#########################################################"
-ros2 bag record -o /mnt/output /flir_camera/camera_info /flir_camera/image_raw /lidar/points
+ros2 bag record -o /home/me/out /flir_camera/camera_info /flir_camera/image_raw /lidar/points
