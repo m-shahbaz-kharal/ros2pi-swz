@@ -81,9 +81,9 @@ cd utils_ws
 colcon build --symlink-install
 cd ..
 
-echo "#########################################################"
-echo "SETTING UP NETWORK"
-echo "#########################################################"
-sudo cp network_plan.yaml /etc/netplan/99_config.yaml
-sudo netplan apply
-sudo reboot
+# echo "#########################################################"
+# echo "SETTING UP NETWORK"
+# echo "#########################################################"
+# sudo cp network_plan.yaml /etc/netplan/99_config.yaml
+# sudo netplan apply
+# sudo reboot
